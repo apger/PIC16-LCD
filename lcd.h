@@ -28,7 +28,7 @@ void Lcd_Cmd(char a)
 	RS = 0;             // => RS = 0
 	Lcd_Port(a);
 	EN  = 1;             // => E = 1
-        __delay_ms(4);
+        __delay_ms(8);
         EN  = 0;             // => E = 0
 }
 
@@ -64,9 +64,9 @@ void Lcd_Init()
   Lcd_Port(0x00);
    __delay_ms(20);
   Lcd_Cmd(0x03);
-	__delay_ms(5);
+	__delay_ms(10);
   Lcd_Cmd(0x03);
-	__delay_ms(11);
+	__delay_ms(20);
   Lcd_Cmd(0x03);
   /////////////////////////////////////////////////////
   Lcd_Cmd(0x02);

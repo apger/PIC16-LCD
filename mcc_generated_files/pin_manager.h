@@ -79,6 +79,26 @@
 #define POT_SetAnalogMode()  do { ANSELAbits.ANSA2 = 1; } while(0)
 #define POT_SetDigitalMode() do { ANSELAbits.ANSA2 = 0; } while(0)
 
+// get/set RA5 aliases
+#define RA5_TRIS               TRISAbits.TRISA5
+#define RA5_LAT                LATAbits.LATA5
+#define RA5_PORT               PORTAbits.RA5
+#define RA5_WPU                WPUAbits.WPUA5
+#define RA5_OD                ODCONAbits.ODCA5
+#define RA5_ANS                ANSELAbits.ANSA5
+#define RA5_SetHigh()            do { LATAbits.LATA5 = 1; } while(0)
+#define RA5_SetLow()             do { LATAbits.LATA5 = 0; } while(0)
+#define RA5_Toggle()             do { LATAbits.LATA5 = ~LATAbits.LATA5; } while(0)
+#define RA5_GetValue()           PORTAbits.RA5
+#define RA5_SetDigitalInput()    do { TRISAbits.TRISA5 = 1; } while(0)
+#define RA5_SetDigitalOutput()   do { TRISAbits.TRISA5 = 0; } while(0)
+#define RA5_SetPullup()      do { WPUAbits.WPUA5 = 1; } while(0)
+#define RA5_ResetPullup()    do { WPUAbits.WPUA5 = 0; } while(0)
+#define RA5_SetPushPull()    do { ODCONAbits.ODCA5 = 1; } while(0)
+#define RA5_SetOpenDrain()   do { ODCONAbits.ODCA5 = 0; } while(0)
+#define RA5_SetAnalogMode()  do { ANSELAbits.ANSA5 = 1; } while(0)
+#define RA5_SetDigitalMode() do { ANSELAbits.ANSA5 = 0; } while(0)
+
 // get/set RC0 aliases
 #define RC0_TRIS               TRISCbits.TRISC0
 #define RC0_LAT                LATCbits.LATC0

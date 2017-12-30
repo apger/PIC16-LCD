@@ -16,6 +16,7 @@ void main(void)
     SYSTEM_Initialize();
 
     Lcd_Init();
+    
      while (1)
     {
         unsigned int a;
@@ -23,33 +24,40 @@ void main(void)
         int j=ADC_GetConversion(POT);  //values between 438-835 0-1024=0-5v
         float v=j*1.94/396-.035;   //voltage seen at pot and at lcd
         //printf("\n\rADC Value is:  %i",ADC_GetConversion(POT));
+       
+        RA5_SetHigh();  //Status LED
         Lcd_Clear();
         Lcd_Set_Cursor(1,1);
-        Lcd_Write_String("Hello Sydney");
+        Lcd_Write_String("  Hello Mayhem");
         Lcd_Set_Cursor(2,1);
-        Lcd_Write_String("You Are The Best");
+        Lcd_Write_String("   Blow It Up!");
         __delay_ms(2000);
+        RA5_Toggle();
         Lcd_Clear();
         Lcd_Set_Cursor(1,1);
         Lcd_Write_String("Developed By");
         Lcd_Set_Cursor(2,1);
         Lcd_Write_String("Jim Apger");
         __delay_ms(2000);
+        RA5_Toggle();
         Lcd_Clear();
         Lcd_Set_Cursor(1,3);
         Lcd_Write_String("MayhemBadges");
          __delay_ms(1000);
+         RA5_Toggle();
 
-        for(a=0;a<15;a++)
+        for(a=0;a<14;a++)
         {
             __delay_ms(200);
             Lcd_Shift_Left();
+            RA5_Toggle();
         }
 
-        for(a=0;a<15;a++)
+        for(a=0;a<14;a++)
         {
             __delay_ms(200);
             Lcd_Shift_Right();
+            RA5_Toggle();
         }
          __delay_ms(2000);
 
